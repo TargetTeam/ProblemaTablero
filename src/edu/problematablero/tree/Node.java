@@ -8,14 +8,14 @@ package edu.problematablero.tree;
  *
  * @author Camilo
  */
-public class Nodo {
-    private Nodo arriba;
-    private Nodo abajo;
-    private Nodo derecha;
-    private Nodo izquierda;
+public class Node {
+    private Node arriba;
+    private Node abajo;
+    private Node derecha;
+    private Node izquierda;
     int[][] tablero = new int[3][3];
     
-    public Nodo( int[][] data){
+    public Node( int[][] data){
         arriba = null;
         abajo = null;
         derecha = null;
