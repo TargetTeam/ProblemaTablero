@@ -4,6 +4,8 @@
  */
 package edu.problematablero.tree;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Camilo
@@ -11,9 +13,18 @@ package edu.problematablero.tree;
 public class Tree {
     
     private Node node;
+    private HashMap<Integer, Integer> hash;
     
     public Tree(){
         node=null;
+    }
+    
+    public void busquedaPorfundidad(){
+        
+    }
+    
+    public void busquedaAmplitud(){
+        
     }
     
     public boolean empty (){
