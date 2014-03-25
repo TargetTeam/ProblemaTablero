@@ -17,10 +17,16 @@ public class ProblemaTablero {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int [][] data = {{1,2,3}, {4,5,6}, {7,0,8}};
-        Node n = new Node(data);
-        Tree tree = new Tree ();
-        tree.setNode(n);
-        tree.crecerProfundidad();
+        int [][] data1 = {{1,2,3}, {4,5,6}, {7,0,8}};
+        Node n1 = new Node(data1);
+        Tree tree1 = new Tree ();
+        tree1.setNode(n1);
+        tree1.crecerProfundidad();
+        
+        int [][] data2 = {{1,2,3}, {4,5,6}, {7,0,8}};
+        Node n2 = new Node(data2);
+        Tree tree2 = new Tree();
+        tree2.setNode(n2);
+        tree2.crecerProfundidadIterativa();
     }
 }

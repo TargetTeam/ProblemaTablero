@@ -21,7 +21,12 @@ public class Tree {
     }
     
     public void crecerProfundidad(){
-        helper.busquedaPorfundidad(node, hash);
+        boolean r = helper.busquedaProfundidad(node, hash);
+    }
+    
+    public void crecerProfundidadIterativa(){
+        boolean r = helper.busquedaProfundidadIterativa(node, hash);
+        System.out.println(r);
     }
     
     public boolean empty (){
