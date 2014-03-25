@@ -4,6 +4,7 @@
  */
 package edu.problematablero.tree;
 
+import edu.problematablero.helper.Helper;
 import java.util.HashMap;
 
 /**
@@ -11,7 +12,7 @@ import java.util.HashMap;
  * @author Camilo
  */
 public class Tree {
-    
+    private static Helper helper = new Helper();
     private Node node;
     private HashMap<Integer, Integer> hash;
     
@@ -19,12 +20,8 @@ public class Tree {
         node=null;
     }
     
-    public void busquedaPorfundidad(){
-        
-    }
-    
-    public void busquedaAmplitud(){
-        
+    public void crecerProfundidad(){
+        helper.busquedaPorfundidad(node, hash);
     }
     
     public boolean empty (){

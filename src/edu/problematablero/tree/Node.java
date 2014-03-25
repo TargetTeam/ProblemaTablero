@@ -4,6 +4,7 @@
  */
 package edu.problematablero.tree;
 
+import edu.problematablero.helper.Helper;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -17,6 +18,7 @@ public class Node {
     private Node derecha;
     private Node izquierda;
     int[][] tablero = new int[3][3];
+    static  Helper helper = new Helper();
     
     public Node( int[][] data){
         arriba = null;
@@ -39,7 +41,7 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i+1][j];
         ret[i+1][j] = 0;
-        Integer code = hash.get(getHashCode(ret));
+        Integer code = hash.get(helper.getHashCode(ret));
         if(code != null){
             return null;
         }
@@ -62,7 +64,7 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i-1][j];
         ret[i-1][j] = 0;
-        Integer code = hash.get(getHashCode(ret));
+        Integer code = hash.get(helper.getHashCode(ret));
         if(code != null){
             return null;
         }
@@ -85,7 +87,7 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i][j-1];
         ret[i][j-1] = 0;
-        Integer code = hash.get(getHashCode(ret));
+        Integer code = hash.get(helper.getHashCode(ret));
         if(code != null){
             return null;
         }
@@ -108,7 +110,7 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i][j+1];
         ret[i][j+1] = 0;
-        Integer code = hash.get(getHashCode(ret));
+        Integer code = hash.get(helper.getHashCode(ret));
         if(code != null){
             return null;
         }
@@ -118,18 +120,6 @@ public class Node {
         return abajo;
     }
     
-    public int getHashCode(int[][] data){
-        return Integer.parseInt(""+data[0][0] +
-                data[0][1]  +
-                data[0][2]  +
-                data[1][0]  +
-                data[1][1]  +
-                data[1][2]  +
-                data[2][0]  +
-                data[2][1]  +
-                data[2][2] );
-    }
-
     public Node getArriba() {
         return arriba;
     }
@@ -160,6 +150,14 @@ public class Node {
 
     public void setIzquierda(Node izquierda) {
         this.izquierda = izquierda;
+    }
+
+    public int[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(int[][] tablero) {
+        this.tablero = tablero;
     }
     
 }
