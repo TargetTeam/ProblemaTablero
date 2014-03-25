@@ -41,8 +41,8 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i+1][j];
         ret[i+1][j] = 0;
-        Integer code = hash.get(helper.getHashCode(ret));
-        if(code != null){
+        Integer code = helper.getHashCode(ret);
+        if(hash.get(code) != null){
             return null;
         }
         hash.put(code, code);
@@ -64,8 +64,8 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i-1][j];
         ret[i-1][j] = 0;
-        Integer code = hash.get(helper.getHashCode(ret));
-        if(code != null){
+        Integer code = helper.getHashCode(ret);
+        if(hash.get(code) != null){
             return null;
         }
         hash.put(code, code);
@@ -87,8 +87,8 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i][j-1];
         ret[i][j-1] = 0;
-        Integer code = hash.get(helper.getHashCode(ret));
-        if(code != null){
+        Integer code = helper.getHashCode(ret);
+        if(hash.get(code) != null){
             return null;
         }
         hash.put(code, code);
@@ -110,8 +110,8 @@ public class Node {
         int[][] ret= Arrays.copyOf(tablero, tablero.length);
         ret[i][j] = ret[i][j+1];
         ret[i][j+1] = 0;
-        Integer code = hash.get(helper.getHashCode(ret));
-        if(code != null){
+        Integer code = helper.getHashCode(ret);
+        if(hash.get(code) != null){
             return null;
         }
         hash.put(code, code);
@@ -160,4 +160,15 @@ public class Node {
         this.tablero = tablero;
     }
     
+    public void print(){
+        System.out.println(""+tablero[0][0] +
+                tablero[0][1]  +
+                tablero[0][2]  +
+                tablero[1][0]  +
+                tablero[1][1]  +
+                tablero[1][2]  +
+                tablero[2][0]  +
+                tablero[2][1]  +
+                tablero[2][2] );
+    }
 }

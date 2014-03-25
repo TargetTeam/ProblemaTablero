@@ -16,6 +16,7 @@ public class Helper {
     public static final int TARGET = 123456780;
     
     public void busquedaPorfundidad(Node actual, HashMap<Integer,Integer> hash){
+        actual.print();
         if(getHashCode(actual.getTablero())==TARGET){
             System.out.println("Solucionado");
             return;
@@ -23,32 +24,41 @@ public class Helper {
         Node aux;
         aux = actual.setArriba(hash);
         if(aux != null){
+            if(getHashCode(aux.getTablero())==TARGET){
+                aux.print();
+                System.out.println("Solucionado");
+                return;
+            }
             busquedaPorfundidad(aux, hash);
-        }else if(getHashCode(aux.getTablero())==TARGET){
-            System.out.println("Solucionado");
-            return;
         }
         aux = actual.setAbajo(hash);
         if(aux != null){
+            if(getHashCode(aux.getTablero())==TARGET){
+                aux.print();
+                System.out.println("Solucionado");
+                return;
+            }
             busquedaPorfundidad(aux, hash);
-        }else if(getHashCode(aux.getTablero())==TARGET){
-            System.out.println("Solucionado");
-            return;
         }
         aux = actual.setDerecha(hash);
         if(aux != null){
+            if(getHashCode(aux.getTablero())==TARGET){
+                aux.print();
+                System.out.println("Solucionado");
+                return;
+            }
             busquedaPorfundidad(aux, hash);
-        }else if(getHashCode(aux.getTablero())==TARGET){
-            System.out.println("Solucionado");
-            return;
         }
         aux = actual.setIzquierda(hash);
         if(aux != null){
+            if(getHashCode(aux.getTablero())==TARGET){
+                aux.print();
+                System.out.println("Solucionado");
+                return;
+            }
             busquedaPorfundidad(aux, hash);
-        }else if(getHashCode(aux.getTablero())==TARGET){
-            System.out.println("Solucionado");
-            return;
         }
+        return;
     }
     
     public int getHashCode(int[][] data){

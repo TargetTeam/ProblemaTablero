@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class Tree {
     private static Helper helper = new Helper();
     private Node node;
-    private HashMap<Integer, Integer> hash;
+    private HashMap<Integer, Integer> hash = new HashMap<>();;
     
     public Tree(){
         node=null;
