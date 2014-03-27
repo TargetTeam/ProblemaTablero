@@ -5,7 +5,10 @@
 package edu.problematablero.helper;
 
 import edu.problematablero.tree.Node;
+import edu.problematablero.tree.Tree;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
@@ -127,6 +130,33 @@ public class Helper {
                 return ret;
         }
         return false;
+    }
+    
+    public void busquedaAnchura(Tree arbol, HashMap<Integer,Integer> hash){
+        
+        Queue<Node> q = new LinkedList<>();
+        q.add(arbol.getNode());
+        
+        while(!q.isEmpty()){
+            Node actual = (Node)q.remove();
+            System.out.println("___________________________");
+                actual.print();
+            if(getHashCode(actual.getTablero())==TARGET){
+                System.out.println("Solucionado");
+                q.clear();
+            }else{
+                actual.setAbajo(hash);
+                System.out.println("----------------------------");
+                if(actual.getAbajo() != null){actual.getAbajo().print(); q.add(actual.getAbajo());}
+                actual.setArriba(hash);
+                if(actual.getArriba() != null){actual.getArriba().print(); q.add(actual.getArriba());}
+                actual.setDerecha(hash);
+                if(actual.getDerecha() != null) {actual.getDerecha().print(); q.add(actual.getDerecha());}
+                actual.setIzquierda(hash);
+                if(actual.getIzquierda() != null) {actual.getIzquierda().print(); q.add(actual.getIzquierda());}
+                System.out.println("___________________________");
+            }
+        }
     }
     
     public int getHashCode(int[][] data){
