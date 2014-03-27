@@ -29,6 +29,11 @@ public class Tree {
         System.out.println(r);
     }
     
+    public void crecerProfundidadIterativaMisplace(){
+        boolean r = helper.busquedaProfundidadIterativoMisplace(node, hash);
+        System.out.println(r);
+    }
+    
     public void crecerAnchura(){
         helper.busquedaAnchura(this, hash);
     }
