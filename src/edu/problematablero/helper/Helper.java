@@ -156,6 +156,17 @@ public class Helper {
         }
     }
     
+    public int getHeuristicMisplaced(Node node){
+        int cont = 0;
+        String tablero  = String.valueOf(getHashCode(node.getTablero()));
+        String objetivo = String.valueOf(TARGET);
+        for(int i=0; i<tablero.length();i++){
+            if(tablero.charAt(i)!=objetivo.charAt(i))
+                cont++;
+        }
+        return cont;
+    }
+    
     public int getHashCode(int[][] data){
         return Integer.parseInt(""+data[0][0] +
                 data[0][1]  +
