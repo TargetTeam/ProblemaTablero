@@ -28,19 +28,28 @@ public class Node {
         tablero = data;
     }
     
+    public Node(Node n){
+        this.tablero = n.tablero;
+    }
+    
     public Node setDerecha(HashMap<Integer, Integer> hash){
         int i = 0,j = 0;
         while(tablero[i][j] != 0){
-            i++;
-            if(i==3){
-                i=0;
-                j++;
+            j++;
+            if(j==3){
+                j=0;
+                i++;
             }
         }
-        if(i==2) return null;
-        int[][] ret= Arrays.copyOf(tablero, tablero.length);
-        ret[i][j] = ret[i+1][j];
-        ret[i+1][j] = 0;
+        if(j==2) return null;
+        int[][] ret = new int[3][3];
+        for(int k=0;k<3;k++){
+            for(int m=0;m<3;m++){
+                ret[k][m] = tablero[k][m];
+            }
+        }
+        ret[i][j] = ret[i][j+1];
+        ret[i][j+1] = 0;
         Integer code = helper.getHashCode(ret);
         if(hash.get(code) != null){
             return null;
@@ -54,16 +63,21 @@ public class Node {
       public Node setIzquierda(HashMap<Integer, Integer> hash){
         int i = 0,j = 0;
         while(tablero[i][j] != 0){
-            i++;
-            if(i==3){
-                i=0;
-                j++;
+            j++;
+            if(j==3){
+                j=0;
+                i++;
             }
         }
-        if(i==0) return null;
-        int[][] ret= Arrays.copyOf(tablero, tablero.length);
-        ret[i][j] = ret[i-1][j];
-        ret[i-1][j] = 0;
+        if(j==0) return null;
+        int[][] ret = new int[3][3];
+        for(int k=0;k<3;k++){
+            for(int m=0;m<3;m++){
+                ret[k][m] = tablero[k][m];
+            }
+        }
+        ret[i][j] = ret[i][j-1];
+        ret[i][j-1] = 0;
         Integer code = helper.getHashCode(ret);
         if(hash.get(code) != null){
             return null;
@@ -77,16 +91,21 @@ public class Node {
     public Node setArriba(HashMap<Integer, Integer> hash){
         int i = 0,j = 0;
         while(tablero[i][j] != 0){
-            i++;
-            if(i==3){
-                i=0;
-                j++;
+            j++;
+            if(j==3){
+                j=0;
+                i++;
             }
         }
-        if(j==0) return null;
-        int[][] ret= Arrays.copyOf(tablero, tablero.length);
-        ret[i][j] = ret[i][j-1];
-        ret[i][j-1] = 0;
+        if(i==0) return null;
+        int[][] ret = new int[3][3];
+        for(int k=0;k<3;k++){
+            for(int m=0;m<3;m++){
+                ret[k][m] = tablero[k][m];
+            }
+        }
+        ret[i][j] = ret[i-1][j];
+        ret[i-1][j] = 0;
         Integer code = helper.getHashCode(ret);
         if(hash.get(code) != null){
             return null;
@@ -100,16 +119,21 @@ public class Node {
     public Node setAbajo(HashMap<Integer, Integer> hash){
         int i = 0,j = 0;
         while(tablero[i][j] != 0){
-            i++;
-            if(i==3){
-                i=0;
-                j++;
+            j++;
+            if(j==3){
+                j=0;
+                i++;
             }
         }
-        if(j==2) return null;
-        int[][] ret= Arrays.copyOf(tablero, tablero.length);
-        ret[i][j] = ret[i][j+1];
-        ret[i][j+1] = 0;
+        if(i==2) return null;
+        int[][] ret = new int[3][3];
+        for(int k=0;k<3;k++){
+            for(int m=0;m<3;m++){
+                ret[k][m] = tablero[k][m];
+            }
+        }
+        ret[i][j] = ret[i+1][j];
+        ret[i+1][j] = 0;
         Integer code = helper.getHashCode(ret);
         if(hash.get(code) != null){
             return null;

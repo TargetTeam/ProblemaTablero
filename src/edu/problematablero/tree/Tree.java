@@ -29,6 +29,10 @@ public class Tree {
         System.out.println(r);
     }
     
+    public void crecerAnchura(){
+        helper.busquedaAnchura(this, hash);
+    }
+    
     public boolean empty (){
         return node == null;
     }

@@ -139,22 +139,19 @@ public class Helper {
         
         while(!q.isEmpty()){
             Node actual = (Node)q.remove();
-            System.out.println("___________________________");
                 actual.print();
             if(getHashCode(actual.getTablero())==TARGET){
                 System.out.println("Solucionado");
                 q.clear();
             }else{
                 actual.setAbajo(hash);
-                System.out.println("----------------------------");
-                if(actual.getAbajo() != null){actual.getAbajo().print(); q.add(actual.getAbajo());}
+                if(actual.getAbajo() != null) q.add(actual.getAbajo());
                 actual.setArriba(hash);
-                if(actual.getArriba() != null){actual.getArriba().print(); q.add(actual.getArriba());}
+                if(actual.getArriba() != null) q.add(actual.getArriba());
                 actual.setDerecha(hash);
-                if(actual.getDerecha() != null) {actual.getDerecha().print(); q.add(actual.getDerecha());}
+                if(actual.getDerecha() != null) q.add(actual.getDerecha());
                 actual.setIzquierda(hash);
-                if(actual.getIzquierda() != null) {actual.getIzquierda().print(); q.add(actual.getIzquierda());}
-                System.out.println("___________________________");
+                if(actual.getIzquierda() != null)  q.add(actual.getIzquierda());
             }
         }
     }
