@@ -156,29 +156,6 @@ public class Helper {
         }
     }
     
-    public int getHeuristicMisplaced(Node node){
-        if(node==null)return 100;
-        int cont = 0;
-        String tablero  = String.valueOf(getHashCode(node.getTablero()));
-        String objetivo = String.valueOf(TARGET);
-        for(int i=0; i<tablero.length();i++){
-            if(tablero.charAt(i)!=objetivo.charAt(i))
-                cont++;
-        }
-        return cont;
-    }
-    
-     public int getHeuristicManhatan(Node node){
-        int cont = 0;
-        String tablero  = String.valueOf(getHashCode(node.getTablero()));
-        String objetivo = String.valueOf(TARGET);
-        for(int i=0; i<tablero.length();i++){
-            if(tablero.charAt(i)!=objetivo.charAt(i))
-                cont++;
-        }
-        return cont;
-    }
-    
     public int getHashCode(int[][] data){
         return Integer.parseInt(""+data[0][0] +
                 data[0][1]  +
@@ -190,82 +167,5 @@ public class Helper {
                 data[2][1]  +
                 data[2][2] );
     }
-    
-    //Busquedas con heuristica Misplace
-    public boolean busquedaProfundidadIterativoMisplace(Node actual, HashMap<Integer,Integer> hash){
-        boolean ret;
-        actual.print();
-        if(getHashCode(actual.getTablero())==TARGET){
-            System.out.println("Solucionado");
-            return true;
-        }
-        Node auxArriba;
-        int hArriba;
-        auxArriba = actual.setArriba(hash);
-        hArriba = getHeuristicMisplaced(auxArriba);
-        
-        Node auxAbajo;
-        int hAbajo;
-        auxAbajo = actual.setAbajo(hash);
-        hAbajo = getHeuristicMisplaced(auxAbajo);
-        
-        Node auxDerecha;
-        int hDerecha;
-        auxDerecha = actual.setDerecha(hash);
-        hDerecha = getHeuristicMisplaced(auxDerecha);
-        
-        Node auxIzq;
-        int hIzq;
-        auxIzq = actual.setIzquierda(hash);
-        hIzq = getHeuristicMisplaced(auxIzq);
-        
-        while(hAbajo<100 || hArriba<100 || hDerecha<100 || hIzq<100){
-            if(auxArriba != null && hArriba<=hAbajo && hArriba<=hDerecha && hArriba<=hIzq){
-                if(getHashCode(auxArriba.getTablero())==TARGET){
-                    auxArriba.print();
-                    System.out.println("Solucionado");
-                    return true;
-                }
-                hArriba=100;
-                ret = busquedaProfundidadIterativoMisplace(auxArriba, hash);
-                if(ret)
-                    return ret;
 
-            }
-            if(auxAbajo != null && hAbajo<=hArriba && hAbajo<=hDerecha && hAbajo<=hIzq){
-                if(getHashCode(auxAbajo.getTablero())==TARGET){
-                    auxAbajo.print();
-                    System.out.println("Solucionado");
-                    return true;
-                }
-                hAbajo = 100;
-                ret = busquedaProfundidadIterativoMisplace(auxAbajo, hash);
-                if(ret)
-                    return ret;
-            }
-            if(auxDerecha != null && hDerecha<=hArriba && hDerecha<=hAbajo && hDerecha<=hIzq){
-                if(getHashCode(auxDerecha.getTablero())==TARGET){
-                    auxDerecha.print();
-                    System.out.println("Solucionado");
-                    return true;
-                }
-                hDerecha = 100;
-                ret = busquedaProfundidadIterativoMisplace(auxDerecha, hash);
-                if(ret)
-                    return ret;
-            }
-            if(auxIzq != null && hIzq<=hArriba && hIzq<=hAbajo && hIzq<=hDerecha){
-                if(getHashCode(auxIzq.getTablero())==TARGET){
-                    auxIzq.print();
-                    System.out.println("Solucionado");
-                    return true;
-                }
-                ret = busquedaProfundidadIterativoMisplace(auxIzq, hash);
-                if(ret)
-                    return ret;
-            }
-        }
-        
-        return false;
-    }
 }

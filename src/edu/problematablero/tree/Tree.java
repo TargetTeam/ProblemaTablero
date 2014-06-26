@@ -5,6 +5,7 @@
 package edu.problematablero.tree;
 
 import edu.problematablero.helper.Helper;
+import edu.problematablero.helper.HelperHeuristics;
 import java.util.HashMap;
 
 /**
@@ -13,6 +14,7 @@ import java.util.HashMap;
  */
 public class Tree {
     private static Helper helper = new Helper();
+    private static HelperHeuristics helperHeuristic = new HelperHeuristics();
     private Node node;
     private HashMap<Integer, Integer> hash = new HashMap<>();;
     
@@ -30,7 +32,7 @@ public class Tree {
     }
     
     public void crecerProfundidadIterativaMisplace(){
-        boolean r = helper.busquedaProfundidadIterativoMisplace(node, hash);
+        boolean r = helperHeuristic.busquedaProfundidadIterativoMisplace(node, hash);
         System.out.println(r);
     }
     
